@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-pitch text-white font-sans;
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.06) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 20%, rgba(99,102,241,0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card border border-white/5 rounded-2xl;
+    backdrop-filter: blur(12px);
+  }
+  .live-dot {
+    @apply w-2 h-2 rounded-full bg-green-400;
+    animation: livePulse 1.4s ease-in-out infinite;
+  }
+  .stat-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 active:scale-95;
+  }
+  .btn-ghost {
+    @apply border border-white/10 hover:border-white/20 hover:bg-white/5 text-white/70 hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+  .input-field {
+    @apply bg-surface border border-white/10 focus:border-brand-500 text-white placeholder-white/30 rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200;
+  }
+  .page-title {
+    @apply font-display tracking-wider text-4xl text-white;
+  }
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 2px; }
